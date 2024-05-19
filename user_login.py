@@ -10,6 +10,9 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 class UserLogin():
+    def __init__(self):
+        self.user_id = None
+        
     def fromDB(self, user_id):
         self.__user = session.query(Users).filter_by(user_id=user_id).first()
         self.user_id = user_id
