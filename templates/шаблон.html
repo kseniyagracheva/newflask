@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/главные стили.css') }}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+        
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img class="header_img" src="{{ url_for('static', filename='img/flower.png') }}" alt="flower">
+            <span class="fs-4">&nbsp Bloom</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/log_in" class="nav-link active" aria-current="page">Войти</a></li>
+            <li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
+            <li class="nav-item"><a href="/bouquets" class="nav-link">Готовые букеты</a></li>
+            <li class="nav-item"><a href="/packing" class="nav-link">Упаковки</a></li>
+            <li class="nav-item"><a href="/tapes" class="nav-link">Ленты</a></li>
+            <li class="nav-item"><a href="/basket" class="nav-link">Мой букет</a></li>
+          </ul>
+        </header>
+        <div class="content">       
+            {% block content %}{% endblock %}
+        </div>
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+              <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <img class="footer_img" src="{{ url_for('static', filename='img/flower.png') }}" alt="flower">
+              </a>
+              <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Bloom, Inc</span>
+            </div>
+        
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <img class="footer_img" src="{{ url_for('static', filename='img/tg.png') }}" alt="tg">
+                <img class="footer_img" src="{{ url_for('static', filename='img/inst.png') }}" alt="inst">
+            </a>
+            </ul>
+          </footer>
+    </div>
+    
+</body>
+</html>

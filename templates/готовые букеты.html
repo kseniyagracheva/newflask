@@ -1,0 +1,74 @@
+{%  extends 'шаблон.html' %}
+
+{%  block title %}
+Букеты
+{%  endblock %}
+
+{% block content %}
+    
+<h1 style="text-align: center;">Букеты</h1><br>
+    <style>
+    /* Стили для карточки товара */
+    .product-image {
+        max-width: 100%;
+        height: 200px;
+    }
+    
+    </style>
+        
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 style="text-align: center;" class="my-0 fw-normal">{{bouquet1.bouquet_name}}</h4>
+            </div>
+            <div class="card-body">
+                <img src="data:image/jpeg;base64,{{ bouquet1.bouquet_image }}" class="product-image">
+                <ul class="list-unstyled mt-3 mb-4">
+                    <p>{{bouquet1.bouquet_desc}}</p>
+                    <p><b>Цена: {{bouquet1.bouquet_cost}} руб.</b></p>
+                </ul>
+                <form method="post">
+                    <input type="hidden" name="bouquet_id" value="{{ bouquet1.bouquet_id }}">
+                    <button type="submit" class="me-3 py-2 btn btn-outline-success">Добавить в букет</button></form>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 style="text-align: center;" class="my-0 fw-normal">{{bouquet2.bouquet_name}}</h4>
+              </div>
+              <div class="card-body">
+                  <img src="data:image/jpeg;base64,{{ bouquet2.bouquet_image }}" class="product-image">
+                  <ul class="list-unstyled mt-3 mb-4">
+                      <p>{{bouquet2.bouquet_desc}}</p>
+                      <p><b>Цена: {{bouquet2.bouquet_cost}} руб.</b></p>
+                  </ul>
+                  <form method="post">
+                    
+                    <input type="hidden" name="bouquet_id" value="{{ bouquet2.bouquet_id }}">
+                    <button type="submit" class="me-3 py-2 btn btn-outline-success">Добавить в букет</button></form>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 style="text-align: center;" class="my-0 fw-normal">{{bouquet3.bouquet_name}}</h4>
+              </div>
+              <div class="card-body">
+                  <img src="data:image/jpeg;base64,{{ bouquet3.bouquet_image }}" class="product-image">
+                  <ul class="list-unstyled mt-3 mb-4">
+                      <p>{{bouquet3.bouquet_desc}}</p>
+                      <p><b>Цена: {{bouquet3.bouquet_cost}} руб.</b></p>
+                  </ul>
+                  <form method="post">
+                    
+                    <input type="hidden" name="bouquet_id" value="{{ bouquet3.bouquet_id }}">
+                    <button type="submit" class="me-3 py-2 btn btn-outline-success">Добавить в букет</button></form>
+              </div>
+            </div>
+          </div>
+    </div>
+{% endblock %}

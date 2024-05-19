@@ -1,0 +1,75 @@
+{%  extends 'шаблон.html' %}
+
+{%  block title %}
+Мой букет
+{%  endblock %}
+
+{% block content %}
+<style>
+    /* Стили для карточки товара */
+    .product-image {
+        max-width: 100%;
+        height: 200px;
+    }
+    
+    </style>
+<h1>Мой букет</h1>
+<form method="post">
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h4 style="text-align: center;" class="my-0 fw-normal">{{existing_bouquet.bouquet_name}}</h4>
+        </div>
+        <div class="card-body">
+            <img src="data:image/jpeg;base64,{{ existing_bouquet.bouquet_image }}" class="product-image">
+            <ul class="list-unstyled mt-3 mb-4">
+                <p>{{existing_bouquet.bouquet_desc}}</p>
+                <p><b>{{existing_bouquet.bouquet_cost}} руб.</b></p>
+            </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 style="text-align: center;" class="my-0 fw-normal">{{existing_tape.tape_name}}</h4>
+          </div>
+          <div class="card-body">
+            <img src="data:image/jpeg;base64,{{ existing_tape.tape_image }}" class="product-image">
+              <ul class="list-unstyled mt-3 mb-4">
+                  <p>{{existing_tape.tape_desc}}</p>
+                  <p><b>Цена: {{existing_tape.tape_cost}} руб.</b></p>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 style="text-align: center;" class="my-0 fw-normal">{{existing_paper.paper_name}}</h4>
+          </div>
+          <div class="card-body">
+            <img src="data:image/jpeg;base64,{{ existing_paper.paper_image }}" class="product-image">
+              <ul class="list-unstyled mt-3 mb-4">
+                  <p>{{existing_paper.paper_desc}}</p>
+                  <p><b>Цена: {{existing_paper.paper_cost}} руб.</b></p>
+              </ul>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="card-body">
+    <ul class="list-unstyled mt-3 mb-4">
+        <p><b>Итоговая цена: {{existing_bouquet.bouquet_cost+existing_tape.tape_cost+existing_paper.paper_cost}} руб.</b></p>
+        <p><input type="date" name="date"><p>
+        <p><input type="time" name="time"><p></p>
+    </ul>
+    <button type="submit" class="me-3 py-2 btn btn-outline-success">Отправить заказ</button>
+</div></form>
+<p></p>
+
+<!-- <button type="submit" class="me-3 py-2 btn btn-outline-success">Добавить в букет</button> -->
+
+{% endblock %}

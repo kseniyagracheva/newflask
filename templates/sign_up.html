@@ -1,0 +1,36 @@
+{%  extends 'шаблон.html' %}
+
+{%  block title %}
+sign-up
+{%  endblock %}
+
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}<br></div>
+{%endfor%}
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+	<div class="card w-100" style="max-width: 400px;">
+		<div class="card-body">
+			<h3 class="card-title text-center mb-4">Регистрация</h3>
+			<form method="post">
+				<div class="mb-3">
+					<label for="username" class="form-label">Имя пользователя</label>
+					<input type="text" class="form-control" id="username" name="username"
+					       aria-describedby="usernameHelp">
+					<div id="usernameHelp" class="form-text">Введите адрес электронной почты.</div>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label">Пароль</label>
+					<input type="password" class="form-control" id="password" name="password">
+				</div>
+                <div class="mb-3">
+					<label for="password" class="form-label">Повторите пароль</label>
+					<input type="password" class="form-control" id="password" name="password2">
+				</div>
+				<button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
